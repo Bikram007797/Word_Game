@@ -1,184 +1,78 @@
+/* --- New Global Theme Variables --- */
 :root {
-    --bg-color: #F8F4F2; /* Light beige/off-white */
-    --container-bg: #FFFFFF;
-    --text-color: #333333; /* Dark text */
-    --primary-color: #8C6A5A; /* Muted brown/terracotta for buttons */
-    --accent-color: #B5A192; /* Lighter accent */
-    --success-color: #4CAF50;
-    --error-color: #F44336;
-    --font-family: 'Arial', sans-serif;
+    --default-bg-color: #F8F4F2;
+    --default-container-bg: #FFFFFF;
+    --default-primary-color: #8C6A5A;
+    --default-accent-color: #B5A192;
+    /* ... (keep other colors) */
 }
 
-body {
-    font-family: var(--font-family);
+/* --- Dark Theme Variables (for future use/coin purchase) --- */
+.theme-dark {
+    --bg-color: #1a1a2e;
+    --container-bg: #2d2d44;
+    --text-color: #ffffff;
+    --primary-color: #e94560;
+    --accent-color: #904c77;
+}
+
+/* --- New Nav and Profile Styles --- */
+.top-nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
-.container {
-    max-width: 400px;
-    width: 90%;
-    padding: 30px;
-    border-radius: 12px;
-    background-color: var(--container-bg);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    text-align: center;
-}
-
-h1 {
-    color: var(--primary-color);
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-/* --- Puzzle Area Styles --- */
-.word-puzzle {
-    display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #eee;
-    padding-bottom: 15px;
 }
 
-.word-row {
-    display: flex;
-    margin: 10px 0;
-}
-
-.letter-box {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    margin: 0 3px;
-    border: 2px solid var(--accent-color);
-    border-radius: 4px;
+#coin-display {
     font-weight: bold;
     font-size: 1.1em;
-    cursor: default;
-    background-color: var(--bg-color);
-}
-
-.missing {
-    cursor: pointer;
-    border: 2px solid var(--primary-color);
-    background-color: #FFF;
     color: var(--primary-color);
 }
 
-.missing.filled {
-    background-color: var(--primary-color);
+#profile-button, #close-profile {
+    padding: 8px 15px;
+    background-color: var(--accent-color);
     color: white;
+    font-size: 0.9em;
 }
 
-.hint-button {
-    background: none;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
-    padding: 5px 10px;
+/* New Detail Card Styles */
+.detail-card strong {
+    color: var(--primary-color);
+}
+
+.synonym-list, .antonym-list {
+    list-style: none;
+    padding: 0;
     margin-top: 5px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
-.hint-button:disabled {
-    opacity: 0.5;
-    cursor: default;
-}
-
-/* --- Button Styles --- */
-button {
-    padding: 10px 20px;
-    margin-top: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-#check-button {
-    background-color: var(--primary-color);
-    color: white;
-}
-
-#check-button:hover {
-    background-color: #6d4f45;
-}
-
-/* --- Result Screen Styles --- */
-#word-details {
-    text-align: left;
-    margin-top: 20px;
-}
-
-.detail-card {
+.synonym-list li, .antonym-list li {
+    display: inline-block;
+    background-color: var(--bg-color);
+    padding: 2px 8px;
+    border-radius: 5px;
+    margin: 3px;
     border: 1px solid var(--accent-color);
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
 }
 
-.detail-card h3 {
-    color: var(--primary-color);
-    margin-top: 0;
+/* Theme buttons in profile */
+.theme-button {
+    background-color: var(--accent-color);
+    color: white;
+    margin-right: 10px;
 }
 
-/* --- Utility --- */
-.hidden {
-    display: none !important;
+.theme-button.active {
+    background-color: var(--primary-color);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--primary-color);
 }
 
-#message {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.success {
-    color: var(--success-color);
-}
-
-.error {
-    color: var(--error-color);
-}
-
-/* --- Modal Styles --- */
-#input-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background: var(--container-bg);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-#letter-input {
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    font-size: 1.5em;
-    margin: 10px 0;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    text-transform: uppercase;
+.theme-button:disabled {
+    opacity: 0.6;
 }
