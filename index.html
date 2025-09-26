@@ -9,8 +9,13 @@
 </head>
 <body>
     <div class="container">
+        <div class="top-nav">
+            <button id="profile-button">PROFILE</button>
+            <div id="coin-display">💰 0</div>
+        </div>
+
         <div id="level-screen">
-            <h1>Level 1: Unscramble the Words</h1>
+            <h1 id="level-title"></h1>
             <div id="puzzle-container">
                 </div>
             <button id="check-button">CHECK WORDS</button>
@@ -18,11 +23,26 @@
         </div>
 
         <div id="result-screen" class="hidden">
-            <h1>Level Complete!</h1>
+            <h1>Level Complete! 🎉</h1>
+            <p id="coin-reward-message"></p>
             <p>You unlocked the meaning of these words:</p>
             <div id="word-details">
                 </div>
-            <button id="next-level-button">NEXT LEVEL (WIP)</button>
+            <button id="next-level-button">NEXT LEVEL</button>
+        </div>
+
+        <div id="profile-screen" class="hidden">
+            <h1>Your Profile</h1>
+            <p><strong>Total Levels Completed:</strong> <span id="completed-levels">0</span></p>
+            <p><strong>Total Coins:</strong> <span id="total-coins">0</span></p>
+            <hr>
+            <h2>Customize Theme (Coins Needed: 500)</h2>
+            <div class="theme-options">
+                <button data-theme="default" class="theme-button active">Default</button>
+                <button data-theme="dark" class="theme-button" disabled>Dark Mode</button>
+                <button data-theme="nature" class="theme-button" disabled>Nature</button>
+            </div>
+            <button id="close-profile">CLOSE PROFILE</button>
         </div>
     </div>
     
@@ -34,14 +54,11 @@
             <button id="cancel-input">CANCEL</button>
         </div>
     </div>
-
+    
     <script>
         if (window.Telegram && window.Telegram.WebApp) {
             document.addEventListener('DOMContentLoaded', () => {
                 Telegram.WebApp.ready();
-                // Custom theme colors for aesthetic look
-                document.body.style.backgroundColor = 'var(--bg-color)';
-                document.querySelector('.container').style.backgroundColor = 'var(--container-bg)';
             });
         }
     </script>
