@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Puzzle Game</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div id="level-screen">
+            <h1>Level 1: Unscramble the Words</h1>
+            <div id="puzzle-container">
+                </div>
+            <button id="check-button">CHECK WORDS</button>
+            <p id="message"></p>
+        </div>
+
+        <div id="result-screen" class="hidden">
+            <h1>Level Complete!</h1>
+            <p>You unlocked the meaning of these words:</p>
+            <div id="word-details">
+                </div>
+            <button id="next-level-button">NEXT LEVEL (WIP)</button>
+        </div>
+    </div>
+    
+    <div id="input-modal" class="hidden">
+        <div class="modal-content">
+            <h2>Enter Missing Letter</h2>
+            <input type="text" maxlength="1" id="letter-input">
+            <button id="submit-letter">SUBMIT</button>
+            <button id="cancel-input">CANCEL</button>
+        </div>
+    </div>
+
+    <script>
+        if (window.Telegram && window.Telegram.WebApp) {
+            document.addEventListener('DOMContentLoaded', () => {
+                Telegram.WebApp.ready();
+                // Custom theme colors for aesthetic look
+                document.body.style.backgroundColor = 'var(--bg-color)';
+                document.querySelector('.container').style.backgroundColor = 'var(--container-bg)';
+            });
+        }
+    </script>
+</body>
+</html>
